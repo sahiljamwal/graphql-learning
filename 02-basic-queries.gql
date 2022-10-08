@@ -1,0 +1,13 @@
+# lets write some queries here for the schema defined in the 01-basic-types.gql file
+# start a query with empty object pick any selector from the schema Query type
+
+# lets search a user with id=2 and return its name age and id
+# remember when ever a query is returning type which is not a scaler than GQL wants you to specify
+# which fiels you want
+{
+  user(id: "2") {
+    id
+    name
+    age
+  }
+}

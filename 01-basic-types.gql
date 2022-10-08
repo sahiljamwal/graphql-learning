@@ -1,0 +1,31 @@
+# there are 5 primitive types in GraphQL -> ID,String,Int,Float,Boolean and these are known as Scaler
+# ! after a type signifies its mandatory
+# you can refer to your own type inside a type definition
+# Every GraphQl Schema must have a Query Type telling the user which fields can be queried
+
+type User {
+  id: ID!
+  name: String!
+  age: Int!
+  height: Float!
+  isMarried: Boolean
+  friends: [User!]
+  videosPosted: [Video!]
+}
+
+type Video {
+  id: ID!
+  title: String!
+  description: String!
+}
+
+input usersFieldInput {
+  id: ID
+  name: String
+}
+
+# if your query requires complex| or more than 1 field filtering logic then you can specify it in input type
+type Query {
+  user(code: ID!): User!
+  users(filter: usersFieldInput): [User!]!
+}
